@@ -24,4 +24,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EcoPower_Logistics.Data\EcoPower_Logistics.Data.csproj" />
+  </ItemGroup>
+
 </Project>
