@@ -9,7 +9,7 @@ namespace EcoPower_Logistics.Data.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        SuperStoreContext _context;
+        protected readonly SuperStoreContext _context;
 
         public GenericRepository(SuperStoreContext context)
         {
