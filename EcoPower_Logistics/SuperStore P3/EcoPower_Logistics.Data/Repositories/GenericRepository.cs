@@ -62,7 +62,7 @@ namespace EcoPower_Logistics.Data.Repositories
             }
         }
 
-        public void Delete(T entity)
+        public void Remove(T entity)
         {
             try
             {
