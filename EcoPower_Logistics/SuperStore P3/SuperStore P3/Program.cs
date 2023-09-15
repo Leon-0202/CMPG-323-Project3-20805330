@@ -19,6 +19,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 
