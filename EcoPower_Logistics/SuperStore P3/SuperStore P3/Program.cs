@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Data;
 using EcoPower_Logistics.Data.Data;
 using EcoPower_Logistics.Data.Repositories;
+using EcoPower_Logistics.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericReposi
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
+builder.Services.AddTransient<ICustomerService, CustomerService>();
 
 var app = builder.Build();
 
