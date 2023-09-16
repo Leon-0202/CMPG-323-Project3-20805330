@@ -19,27 +19,27 @@ namespace EcoPower_Logistics.Service.Services
 
         public Customer GetCustomerById(int? id)
         {
-            return _customerRepository.GetCustomerById(id);
+            return _customerRepository.GetAll().FirstOrDefault(x => x.CustomerId == id);
         }
 
         public IEnumerable<Customer> GetAllCustomers()
         {
-            return _customerRepository.GetAllCustomers();
+            return _customerRepository.GetAll().ToList();
         }
 
         public void AddCustomer(Customer entity)
         {
-            _customerRepository.AddCustomer(entity);
+            _customerRepository.Add(entity);
         }
 
         public void UpdateCustomer(Customer entity)
         {
-            _customerRepository.UpdateCustomer(entity);
+            _customerRepository.Update(entity);
         }
 
         public void RemoveCustomer(Customer entity)
         {
-            _customerRepository.RemoveCustomer(entity);
+            _customerRepository.Remove(entity);
         }
     }
 }
