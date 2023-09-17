@@ -19,27 +19,27 @@ namespace EcoPower_Logistics.Service.Services
 
         public Product GetProductById(int? id)
         {
-            return _productRepository.GetAll().FirstOrDefault(x => x.ProductId == id);
+            return _productRepository.GetProductById(id);
         }
 
         public IEnumerable<Product> GetAllProducts()
         {
-            return _productRepository.GetAll().ToList();
+            return _productRepository.GetAllProducts();
         }
 
         public void AddProduct(Product entity)
         {
-            _productRepository.Add(entity);
+            _productRepository.AddProduct(entity);
         }
 
         public void UpdateProduct(Product entity)
         {
-            _productRepository.Update(entity);
+            _productRepository.UpdateProduct(entity);
         }
 
         public void RemoveProduct(Product entity)
         {
-            _productRepository.Remove(entity);
+            _productRepository.RemoveProduct(entity);
         }
     }
 }
