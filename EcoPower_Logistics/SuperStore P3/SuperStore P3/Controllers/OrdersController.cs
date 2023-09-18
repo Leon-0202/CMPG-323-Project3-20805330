@@ -28,7 +28,7 @@ namespace Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId");
+            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId", "CustomerId");
             return View(_orderService.GetAllOrders().ToList());
         }
 
@@ -40,7 +40,7 @@ namespace Controllers
                 return NotFound();
             }
 
-            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId");
+            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId", "CustomerId");
             var order = _orderService.GetOrderById(id);
 
             if (order == null)
@@ -54,7 +54,7 @@ namespace Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId");
+            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId", "CustomerId");
             return View();
         }
 
@@ -84,7 +84,7 @@ namespace Controllers
                 return NotFound();
             }
 
-            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId");
+            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId", "CustomerId");
             return View(order);
         }
 
@@ -126,7 +126,7 @@ namespace Controllers
                 return NotFound();
             }
 
-            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId");
+            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId", "CustomerId");
             var order = _orderService.GetOrderById(id);
 
             if (order == null)
