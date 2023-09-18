@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Data;
-using Models;
+using EcoPower_Logistics.Data.Data;
+using EcoPower_Logistics.Data.Models;
 
 namespace Controllers
 {
