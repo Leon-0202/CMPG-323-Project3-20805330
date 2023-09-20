@@ -72,8 +72,7 @@ namespace Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("OrderDetailsId,OrderId,ProductId,Quantity,Discount")] OrderDetail orderDetail)
         {
-            ViewData["OrderId"] = new SelectList(_orderService.GetAllOrders(), "OrderId", "OrderId", orderDetail.OrderId);
-            ViewData["ProductId"] = new SelectList(_productService.GetAllProducts(), "ProductId", "ProductId", orderDetail.ProductId);
+            _orderDetailService.AddOrderDetail(orderDetail);
             return RedirectToAction("Index");
         }
 
