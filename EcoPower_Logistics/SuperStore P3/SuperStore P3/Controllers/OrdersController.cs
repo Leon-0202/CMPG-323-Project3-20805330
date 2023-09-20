@@ -84,7 +84,7 @@ namespace Controllers
                 return NotFound();
             }
 
-            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId", "CustomerId");
+            ViewData["CustomerId"] = new SelectList(_customerService.GetAllCustomers(), "CustomerId", "CustomerId", order.CustomerId);
             return View(order);
         }
 
