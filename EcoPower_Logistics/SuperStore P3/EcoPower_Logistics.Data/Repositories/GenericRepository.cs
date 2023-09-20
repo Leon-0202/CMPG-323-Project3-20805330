@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EcoPower_Logistics.Data.Data;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace EcoPower_Logistics.Data.Repositories
 {
@@ -68,6 +70,27 @@ namespace EcoPower_Logistics.Data.Repositories
             {
                 _context.Remove(entity);
                 _context.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                // Handle the exception
+                if (ex.InnerException is SqlException sqlException)
+                {
+                    if (sqlException.Number == 547) // Error number for foreign key constraint violation in SQL Server
+                    {
+                        throw new Exception($"This record is associated with other existing records and can thus not be removed: {ex.Message}");
+                    }
+                    else
+                    {
+                        // Handle other SQL exceptions or rethrow the exception
+                        throw new Exception($"Could not remove entity: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    // Handle other types of DbUpdateException or rethrow the exception
+                    throw new Exception($"Could not remove entity: {ex.Message}");
+                }
             }
             catch (Exception ex)
             {
