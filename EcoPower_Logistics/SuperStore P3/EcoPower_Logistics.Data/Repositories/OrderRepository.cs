@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EcoPower_Logistics.Data.Data;
+﻿using EcoPower_Logistics.Data.Data;
 using EcoPower_Logistics.Data.Models;
 
 namespace EcoPower_Logistics.Data.Repositories
 {
+    /**
+     * This repository class inherits from the generic repository class,
+     * and indirectly accesses the DbContext through it.
+     * This repository class is of model type Order.
+     * It makes us of the CRUD operations of the Generic repository class,
+     * and provides implementation for returning either a specific or all Order variables.
+     */
     public class OrderRepository : GenericRepository<Order>, IOrderRepository
     {
         public OrderRepository(SuperStoreContext context) : base(context)

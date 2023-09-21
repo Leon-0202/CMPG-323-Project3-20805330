@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EcoPower_Logistics.Data.Data;
+﻿using EcoPower_Logistics.Data.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace EcoPower_Logistics.Data.Repositories
 {
+    /** 
+     * This repository is the only class that accesses the DbContext directly.
+     * It provides implementation for the basic CRUD operations.
+     * The specialized repository classes inherit from this repository class,
+     * and indirectly access the DbContext through it.
+     */ 
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected readonly SuperStoreContext _context;
