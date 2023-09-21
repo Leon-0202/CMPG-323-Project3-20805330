@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using EcoPower_Logistics.Data.Data;
 using EcoPower_Logistics.Data.Models;
 using EcoPower_Logistics.Service.Services;
 
 namespace Controllers
 {
+    /**
+     * The controllers do not directly access the DbContext.
+     * They also don't directly interact with the Repositories.
+     * Instead, they work through the Service class layers.
+     * Multiple services can be used by a controller to improve the facilitation data access from
+     * multiple repositories.
+     */
     [Authorize]
     public class OrderDetailsController : Controller
     {
